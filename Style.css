@@ -1,0 +1,263 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+    
+}
+
+body.light-theme {
+    background-color: #feb47b; /* Fallback for sunrise gradient */
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+}
+
+body.dark-theme {
+    background-color: #1c1c54; /* Fallback for dark theme */
+    background: linear-gradient(to bottom, #3b3b98, #1c1c54);
+}
+
+
+#theme-toggle {
+    position: fixed; /* Fixed position to stay in the corner */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    width: 50px; /* Width to make it round */
+    height: 50px; /* Height to make it round */
+    border-radius: 100%; 
+    background-color: grey; /* Soft orange background */
+    color: #fff; /* White text */
+    font-size: 1rem; /* Font size for text */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+#theme-toggle:hover {
+    background-color: yellow; /* Slightly darker orange on hover */
+    transform: scale(1.1); /* Enlarge the button slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#weather-details {
+    display: none;
+}
+.weather_container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .weather_container {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.temp {
+    font-size: 5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+body.light-theme .temp {
+    color: #ffd700; /* Golden yellow for temperature */
+}
+
+body.dark-theme .temp {
+    color: #c9a7ff; /* Soft purple for temperature */
+}
+
+.time_location {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.light-theme .time_location {
+    color: #ffffff; /* White for contrast */
+}
+
+body.dark-theme .time_location {
+    color: #e0d4ff; /* Light lavender for contrast */
+}
+
+.condition {
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+body.light-theme .condition {
+    color: #ffe4b5; /* Light beige for condition text */
+}
+
+body.dark-theme .condition {
+    color: #9fa8da; /* Soft blue-gray for condition text */
+}
+
+nav {
+    height: 50px;
+    margin: 3rem 0;
+}
+
+.search_area {
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-theme .search_area {
+    background-color: rgba(50, 50, 70, 0.8); /* Darker background for input */
+    border-color: #cfcfff; /* Light border for dark theme */
+    color: #e0d4ff;
+}
+
+.search_area:focus {
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347; /* Orange-red glow */
+    transform: scale(1.05);
+}
+
+body.dark-theme .search_area:focus {
+    box-shadow: 0 0 10px #6a5acd, 0 0 20px #483d8b; /* Purple glow */
+}
+
+.search_area:hover {
+    box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff4500; /* Warm orange glow */
+    background-color: #fdf5e6; /* Soft cream background */
+}
+
+body.dark-theme .search_area:hover {
+    background-color: #3b3b98; /* Soft dark blue background */
+    box-shadow: 0 0 20px #9370db, 0 0 40px #6a5acd; /* Violet glow */
+}
+
+nav form button {
+    background-color: #ff4500; /* Orange-red button color */
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-theme nav form button {
+    background-color: #6a5acd; /* Soft purple button */
+    color: #e0d4ff;
+}
+
+nav form button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme nav form button:hover {
+    background-color: #483d8b; /* Darker purple on hover */
+    box-shadow: 0 8px 15px rgba(72, 61, 139, 0.5);
+}
+
+.inactivecolor {
+    background-color: rgb(139, 0, 0);
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+}
+
+.activecolor {
+    background-color: rgb(255, 140, 0); /* Vibrant orange */
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.6);
+}
+
+/* More Details Button */
+.details {
+    background-color: #ff4500; /* Orange-red for light theme */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Dark theme adjustments */
+body.dark-theme .details {
+    background-color: #6a5acd; /* Soft purple for dark theme */
+    color: #e0d4ff; /* Light lavender text */
+}
+
+.details:hover {
+    background-color: #ff6347; /* Lighter orange on hover */
+    transform: scale(1.05);
+}
+
+body.dark-theme .details:hover {
+    background-color: #483d8b; /* Darker purple on hover */
+    transform: scale(1.05);
+}
+
+.details:active {
+    background-color: #003d80; /* Darker blue for active state */
+    transform: scale(0.95);
+}
+
+/* Weather Details */
+#weather-details {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Light Theme Weather Details */
+body.light-theme #weather-details {
+    background-color: #fdf5e6; /* Soft cream background for light theme */
+    color: #333; /* Darker text for readability */
+}
+
+/* Dark Theme Weather Details */
+body.dark-theme #weather-details {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark gray background with transparency */
+    color: #e0d4ff; /* Light lavender text */
+}
+
+
+.weather-icon img {
+    width: 100px;  /* Adjust this value to your preferred size */
+    height: 100px; /* Keep the height same as width to maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits within the specified width and height without distortion */
+}
